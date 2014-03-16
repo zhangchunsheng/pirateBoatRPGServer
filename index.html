@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>index</title>
+		<script type="text/javascript" src="socket.io.js"></script>
+		<script type="text/javascript">
+			var socket = io.connect('http://ec2-23-22-46-229.compute-1.amazonaws.com:9000');
+			socket.on('connect', function () {
+				//socket connected
+				socket.emit("lineMgrInfo", function (serverList) {
+					console.log(serverList);
+                });
+			});
+			socket.on('custom event', function () {
+				//server emitted a custom event
+			});
+			socket.on('disconnect', function () {
+				//socket disconnected
+			});
+			socket.send('hi there');
+			
+			var socket_ = io.connect('http://ec2-23-22-46-229.compute-1.amazonaws.com:7000');
+			socket_.on('connect', function () {
+				//socket connected
+				socket_.emit("lineMgrInfo", function (serverList) {
+					console.log(serverList);
+                });
+				socket_.emit("enterCustoms", 0, 0);
+				socket_.emit("customsFight", 0);
+			});
+			socket_.on('custom event', function () {
+				//server emitted a custom event
+			});
+			socket_.on('disconnect', function () {
+				//socket disconnected
+			});
+			socket_.send('hi there');
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
