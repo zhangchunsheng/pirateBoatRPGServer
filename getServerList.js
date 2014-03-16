@@ -33,7 +33,7 @@ io.sockets.on('connection', function (socket) {
 			console.log(item);
 			//if(item) {
 				//ec2-23-22-46-229.compute-1.amazonaws.com 7000
-				fn("Succeed", "172.16.8.14", 7000);//119.161.210.55:7000
+				fn("Succeed", "222.126.242.105", 7000);//119.161.210.55:7000
 			//} else {
 				//fn("NotSucceed", "", 0);
 			//}
